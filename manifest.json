@@ -1,0 +1,32 @@
+{
+  "name": "CDC Font Tester",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "16": "font16.png",
+    "48": "font48.png",
+    "128": "font128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.cdc.gov/*"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ], 
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    // "*://*.msappproxy.net/*",
+    "*://*.cdc.gov/*"
+  ]
+} 
