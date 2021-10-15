@@ -22,4 +22,5 @@ This extension is plug and play. Once installed you don't have to do anything el
 
 ## Developing
 
-To make changes, edit the `background.js` file. To have the changes take effect in the browser, click the refresh icon that appears on the extension page.
+CSS changes are made in the WCMS, the links will be posted
+

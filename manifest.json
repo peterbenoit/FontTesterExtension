@@ -16,17 +16,9 @@
     ],
     "persistent": true
   },
-  "content_scripts": [
-    {
-      "matches": ["http://*.cdc.gov/*"],
-      "css": ["content.css"],
-      "js": ["content.js"]
-    }
-  ], 
   "permissions": [
     "webRequest",
     "webRequestBlocking",
-    // "*://*.msappproxy.net/*",
     "*://*.cdc.gov/*"
   ]
-} 
+}
