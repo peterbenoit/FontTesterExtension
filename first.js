@@ -1,6 +1,14 @@
-chrome.storage.sync.get(['activesheet'], function(items) {
-    console.log('Active Stylesheet', items);
+chrome.storage.sync.get(['activesheet'], function(sheet) {
+    console.log('Active Stylesheet', sheet);
 });
+
+let activetab = '';
+chrome.storage.sync.get(['tab'], function(tab) {
+    console.log('Active tab', tab);
+    activetab = tab;
+});
+
+
 document.querySelectorAll('[title="fontstylesheet"]').forEach(e => e.remove());
 
 var head = document.head;
@@ -13,6 +21,6 @@ link.title = 'fontstylesheet';
 
 head.appendChild(link);
 
-chrome.storage.sync.set({'activesheet': 'first'}, function() {
+chrome.storage.sync.set({'activesheet': 'first', 'tab': activetab }, function() {
     console.log('Settings saved');
 });
