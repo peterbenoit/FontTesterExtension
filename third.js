@@ -1,3 +1,6 @@
+chrome.storage.sync.get(['activesheet'], function(items) {
+    console.log('Active Stylesheet', items);
+});
 document.querySelectorAll('[title="fontstylesheet"]').forEach(e => e.remove());
 
 var head = document.head;
@@ -9,3 +12,7 @@ link.href = 'https://codepen.io/peterbenoit/pen/vYJLGLx.css';
 link.title = 'fontstylesheet';
 
 head.appendChild(link);
+
+chrome.storage.sync.set({'activesheet': 'third'}, function() {
+    console.log('Settings saved');
+});
