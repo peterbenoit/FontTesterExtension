@@ -17,8 +17,6 @@
     "persistent": true
   },
   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
     "storage",
     "tabs",
     "*://*.cdc.gov/*"

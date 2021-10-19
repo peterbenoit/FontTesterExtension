@@ -1,14 +1,16 @@
-chrome.storage.sync.get(['activesheet'], function(sheet) {
-    console.log('Active Stylesheet', sheet);
-});
 
 let activetab = '';
-chrome.storage.sync.get(['tab'], function(tab) {
-    console.log('Active tab', tab);
+chrome.storage.local.get('tabId', function(tab) {
+    console.log('Active tab', tab.tabId);
     activetab = tab;
 });
 
 
+var obj = {};
+obj[activetab] = 'first';
+chrome.storage.local.set(obj);
+
+// remove all the injected font style sheets
 document.querySelectorAll('[title="fontstylesheet"]').forEach(e => e.remove());
 
 var head = document.head;
@@ -21,6 +23,21 @@ link.title = 'fontstylesheet';
 
 head.appendChild(link);
 
-chrome.storage.sync.set({'activesheet': 'first', 'tab': activetab }, function() {
-    console.log('Settings saved');
-});
+
+// show all keys
+function getAllKeys() {
+    chrome.storage.local.get(null, function(items) {
+        var allKeys = Object.keys(items);
+        console.log(allKeys);
+    });
+    chrome.storage.sync.get(null, function(items) {
+        var allKeys = Object.keys(items);
+        console.log(allKeys);
+    });
+}
+
+
+// remove all keys
+function removeAllKeys() {
+    chrome.storage.sync.clear(); chrome.storage.local.clear();
+}

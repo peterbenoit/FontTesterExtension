@@ -1,9 +1,9 @@
-chrome.storage.sync.get(['activesheet'], function(sheet) {
+chrome.storage.local.get(['activesheet'], function(sheet) {
     console.log('Active Stylesheet', sheet);
 });
 
 let activetab = '';
-chrome.storage.sync.get(['tab'], function(tab) {
+chrome.storage.local.get(['tab'], function(tab) {
     console.log('Active tab', tab);
     activetab = tab;
 });
@@ -21,6 +21,6 @@ link.title = 'fontstylesheet';
 
 head.appendChild(link);
 
-chrome.storage.sync.set({'activesheet': 'fourth', 'tab': activetab }, function() {
+chrome.storage.local.set({'activesheet': 'fourth', 'tab': activetab }, function() {
     console.log('Settings saved');
 });
