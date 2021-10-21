@@ -1,22 +1,10 @@
-// left in here in case we need to maintain 
-
-
-
-// const filter = {
-//     urls: ['*://*.cdc.gov/*']
-// }
-
-// const listener = (details) => {
-//     console.log(details)
-// }
-
-// chrome.webRequest.onBeforeRequest.addListener(listener, filter, ['blocking']);
-
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    if (msg.text == "getTabID") {
+        sendResponse({tab: sender.tab.id});
+     }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
-    // chrome.storage.local.get(['activesheet'], function (items) {
-    //     console.log('Active Stylesheet', items);
-    // });
     console.log('DOM LOADED');
 }, false);
 
@@ -25,42 +13,31 @@ chrome.tabs.onActivated.addListener(function (info) {
     var tabId = info.tabId,
         windowId = info.windowId;
     console.log("oA", tabId, windowId);
-    saveTabId(tabId);
-    getTabId();
 });
 
 chrome.tabs.onActiveChanged.addListener(function (tabId, info) {
     tabId = tabId; // For comparison
     var windowId = info.windowId;
     console.log("oAC", tabId, windowId);
-    saveTabId(tabId);
-    getTabId();
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    // read changeInfo data and do something with it (like read the url)
     if (changeInfo.url) {
-        // do something here
         console.log('URL changed', tabId);
 
-        saveTabId(tabId);
-        getTabId();
+        chrome.storage.local.get(tabId.toString(), function( obj ){
+            console.log( 'tab', obj[tabId] );
 
-
-        // chrome.storage.local.get(['activesheet'], function(sheet) {
-        //     console.log('Active sheet ->', sheet);
-        //     chrome.tabs.executeScript({
-        //         file: sheet.activesheet + '.js'
-        //     });
-        // });
+            chrome.tabs.executeScript({
+                file: obj[tabId] + '.js'
+            });
+        });
     }
 });
 
 function saveTabId(tabid) {
     chrome.storage.local.set({
         'tabId': tabid
-    }, function () {
-        console.log('saveTabId -> tabId saved');
     });
 }
 

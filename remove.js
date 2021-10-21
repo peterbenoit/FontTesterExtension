@@ -1,0 +1,1 @@
+document.querySelectorAll('[title="fontstylesheet"]').forEach(e => e.remove());

@@ -1,40 +1,57 @@
-function loadFirst() {
+document.getElementById('firstss').addEventListener('click', function () {
     chrome.tabs.executeScript({
         file: 'first.js'
     });
-}
+});
 
-function loadSecond() {
+document.getElementById('secondss').addEventListener('click', function () {
     chrome.tabs.executeScript({
         file: 'second.js'
     });
-}
+});
 
-function loadThird() {
+document.getElementById('thirdss').addEventListener('click', function () {
     chrome.tabs.executeScript({
         file: 'third.js'
     });
-}
+});
 
-function loadFourth() {
+document.getElementById('fourthss').addEventListener('click', function () {
     chrome.tabs.executeScript({
         file: 'fourth.js'
     });
+});
+
+document.getElementById('removeallss').addEventListener('click', function () {
+    chrome.tabs.executeScript({
+        file: 'remove.js'
+    });
+    removeAllKeys();
+});
+
+
+// show all keys
+function getAllKeys() {
+    chrome.storage.local.get(null, function (items) {
+        var allKeys = Object.keys(items);
+        console.log(allKeys);
+    });
+    // chrome.storage.sync.get(null, function (items) {
+    //     var allKeys = Object.keys(items);
+    //     console.log(allKeys);
+    // });
 }
 
 
-document.getElementById('first').addEventListener('click', function () {
-    loadFirst();
-});
+// remove all keys
+function removeAllKeys() {
+    // chrome.storage.sync.clear();
+    chrome.storage.local.clear();
+}
 
-document.getElementById('second').addEventListener('click', function () {
-    loadSecond();
-});
+// var tab = 123;
+// var obj = {};
+// obj[tab] = 'first';
+// chrome.storage.local.set(obj);
 
-document.getElementById('third').addEventListener('click', function () {
-    loadThird();
-});
-
-document.getElementById('fourth').addEventListener('click', function () {
-    loadFourth();
-});
+// chrome.storage.local.get('123', function(e){console.log(e)})

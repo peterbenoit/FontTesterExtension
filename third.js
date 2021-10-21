@@ -1,13 +1,12 @@
-chrome.storage.local.get(['activesheet'], function(sheet) {
-    console.log('Active Stylesheet', sheet);
-});
+chrome.runtime.sendMessage({
+    text: "getTabID"
+}, tabId => {
+    // console.log('My tabId is', tabId);
 
-let activetab = '';
-chrome.storage.local.get(['tab'], function(tab) {
-    console.log('Active tab', tab);
-    activetab = tab;
+    var obj = {};
+    obj[tabId.tab] = 'third';
+    chrome.storage.local.set(obj);
 });
-
 
 document.querySelectorAll('[title="fontstylesheet"]').forEach(e => e.remove());
 
@@ -20,7 +19,3 @@ link.href = 'https://codepen.io/peterbenoit/pen/vYJLGLx.css';
 link.title = 'fontstylesheet';
 
 head.appendChild(link);
-
-chrome.storage.local.set({'activesheet': 'third', 'tab': activetab }, function() {
-    console.log('Settings saved');
-});
