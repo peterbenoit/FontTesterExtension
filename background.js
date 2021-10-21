@@ -27,9 +27,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         chrome.storage.local.get(tabId.toString(), function( obj ){
             console.log( 'tab', obj[tabId] );
 
-            chrome.tabs.executeScript({
-                file: obj[tabId] + '.js'
-            });
+            if( undefined !== obj[tabId] ) {
+                chrome.tabs.executeScript({
+                    file: obj[tabId] + '.js'
+                });
+            }
         });
     }
 });
