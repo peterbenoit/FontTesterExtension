@@ -16,7 +16,6 @@ chrome.tabs.onActivated.addListener(function (info) {
 });
 
 chrome.tabs.onActiveChanged.addListener(function (tabId, info) {
-    tabId = tabId; // For comparison
     var windowId = info.windowId;
     console.log("oAC", tabId, windowId);
 });

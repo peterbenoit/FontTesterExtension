@@ -36,22 +36,10 @@ function getAllKeys() {
         var allKeys = Object.keys(items);
         console.log(allKeys);
     });
-    // chrome.storage.sync.get(null, function (items) {
-    //     var allKeys = Object.keys(items);
-    //     console.log(allKeys);
-    // });
 }
 
 
 // remove all keys
 function removeAllKeys() {
-    // chrome.storage.sync.clear();
     chrome.storage.local.clear();
 }
-
-// var tab = 123;
-// var obj = {};
-// obj[tab] = 'first';
-// chrome.storage.local.set(obj);
-
-// chrome.storage.local.get('123', function(e){console.log(e)})

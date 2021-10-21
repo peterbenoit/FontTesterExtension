@@ -1,8 +1,6 @@
 chrome.runtime.sendMessage({
     text: "getTabID"
 }, tabId => {
-    // console.log('My tabId is', tabId);
-
     var obj = {};
     obj[tabId.tab] = 'first';
     chrome.storage.local.set(obj);
