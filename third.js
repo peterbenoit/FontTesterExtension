@@ -14,7 +14,7 @@ var link = document.createElement( "link" );
 
 link.type = "text/css";
 link.rel = "stylesheet";
-link.href = 'https://codepen.io/peterbenoit/pen/vYJLGLx.css';
+link.href = 'https://www.cdc.gov/wcms/4.0/cdc-wp/data-presentation/examples/headings-css/heading-styles-3.css';
 link.title = 'fontstylesheet';
 
 head.appendChild( link );
