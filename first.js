@@ -20,7 +20,7 @@ link.title = 'fontstylesheet';
 var font = document.createElement( 'link' );
 font.type = "text/css";
 font.rel = "stylesheet";
-font.href = ':https://codepen.io/peterbenoit/pen/oNeMYQE.css';
+font.href = 'https://codepen.io/peterbenoit/pen/oNeMYQE.css';
 font.title = 'fontstylesheet';
 
 head.appendChild( link );
