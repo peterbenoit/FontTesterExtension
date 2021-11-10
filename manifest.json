@@ -1,6 +1,6 @@
 {
   "name": "CDC Font Testing Tool",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "icons": {
     "16": "font16.png",
