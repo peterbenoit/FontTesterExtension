@@ -21,6 +21,7 @@
     "tabs",
     "*://*.cdc.gov/*",
     "http://fonts.googleapis.com/",
-    "https://fonts.googleapis.com/"    
+    "https://fonts.googleapis.com/",
+    "https://codepen.io/"
   ]
 }
