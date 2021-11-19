@@ -29,9 +29,5 @@
       "matches": ["*://*.cdc.gov/*"],
       "css": ["font.css"]
     }
-  ],
-  "content_scripts": [{
-    "matches": ["http://*/*", "https://*/*"],
-    "js": ["loadcss.js"]
-  }],
+  ]
 }
