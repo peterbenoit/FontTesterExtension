@@ -1,6 +1,6 @@
 {
   "name": "CDC Font Testing Tool",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "icons": {
     "16": "font16.png",
@@ -22,7 +22,8 @@
     "*://*.cdc.gov/*",
     "http://fonts.googleapis.com/",
     "https://fonts.googleapis.com/",
-    "https://codepen.io/"
+    "http://fonts.gstatic.com/",
+    "https://fonts.gstatic.com/"
   ],
   "content_scripts": [
     {
