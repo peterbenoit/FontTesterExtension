@@ -23,5 +23,11 @@
     "http://fonts.googleapis.com/",
     "https://fonts.googleapis.com/",
     "https://codepen.io/"
-  ]
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.cdc.gov/*"],
+      "css": ["font.css"]
+    }
+  ]  
 }
